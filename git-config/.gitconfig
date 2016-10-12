@@ -1,0 +1,19 @@
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	co = checkout
+	st = status
+	br = branch
+[color]
+    ui = auto
+[pull]
+	rebase = true
+[push]
+	default = simple
+[user]
+	name = Marianne Tromp
+	email = mtromp@mtromp.com
+[merge]
+	ff = only
+[gui]
+[credential]
+	helper = cache --timeout=3600
