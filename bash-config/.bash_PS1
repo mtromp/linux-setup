@@ -52,4 +52,5 @@ NC="\[\e[0m\]"               # Color Reset
 # export PS1="\[\e[1;32;44m\]\u@\H\[\e[0;34m\]\W \@\$ \[\e[0m\]"
 # export PS1="\[\e[0;32m\]\u@\h \[\e[0;34m\]\W\[\e[33m\]\$(parse_git_branch) \@\$ \[\e[00m\]"
 ## __git_ps1 must be defined somewhere!!
-export PS1='\[\e[1;36;44m\][\u@\h \W$(__git_ps1 " (%s)") \t]\[\e[0m\]\$ '
+#export PS1='\[\e[1;36;44m\][\u@\h \W$(__git_ps1 " (%s)") \t]\[\e[0m\]\$ '
+export PS1="\[\e[0;32m\]\u@\h \[\e[0;34m\]\W\[\e[33m\]\$(parse_git_branch) \@\$ \[\e[00m\]"
