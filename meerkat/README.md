@@ -14,6 +14,7 @@ my Apple Mouse.
 ## TO DO
 - mount hard disk on bootup
   - symlink ~/Downloads to the hard disk
+  - POSTPONE: space is not yet an issue.
 - add vim-config directory to the linux-setup repository.
 
 
@@ -80,4 +81,8 @@ The installation will start up the ssh service and now I can ssh into the machin
 my Mac Book Pro.
 ## Configuring/Mounting the Hard disk
 
-Don't know how to do this yet.
+Don't know how to do this yet. POSTPONE UNTIL SPACE IS AN ISSUE
+
+## Complete Yocto Quick start
+Set up a yoctowork directory in the workspace directory for this. Documenting my work
+in a separate markdown document.
