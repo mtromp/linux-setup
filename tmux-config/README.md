@@ -25,5 +25,10 @@ tmux source ~/.tmux.conf
 ```
 
 If you use the tmux.conf file that is in this directory, be aware that:
-- the <tmux-prefix> is changed from CTRL-b to CTRL-q
+- the <tmux-prefix\> is changed from CTRL-b to CTRL-q
 - to use the `tmux.conf` file copy it to your home director as `.tmux.conf`
+
+## Scroll content not history
+By default, the up arrow and mouse scroll wheel will scroll through the shell history.
+To allow scrolling through the content in the pane, use <tmux-prefix\> [ to switch to
+'mouse copy mode.' To exit use the ESC key on the prompt line.

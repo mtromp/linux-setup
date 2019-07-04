@@ -14,9 +14,6 @@ my Apple Mouse.
 ## TO DO
 - mount hard disk on bootup
   - symlink ~/Downloads to the hard disk
-- modify the README.md in linux-setup/tmux-config to match the actual plugin settings.
-  - also add a statement about TESTING that the plugins are working. No need to do this
-    each time you start a tmux session.
 - add vim-config directory to the linux-setup repository.
 - allow ssh from other computers.
 
@@ -25,6 +22,9 @@ my Apple Mouse.
 ## tmux
 Set this up according to my instructions on github. CTRL-Q is the prefix.
 Installed gnome-tweaks so that I could change the CAPS-LOCK key to be an extra CTRL key.
+
+`CRTL-Q [` places tmux into mouse copy mode so that I can scroll through the content in
+the tmux pane. Otherwise, it will scroll through history. Use `ESC` to exit that mode.
 
 ## Allow a simple password
 I edited the /etc/pam.d/common-password file to remove the `obscure` from the
