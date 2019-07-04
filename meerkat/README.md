@@ -15,8 +15,6 @@ my Apple Mouse.
 - mount hard disk on bootup
   - symlink ~/Downloads to the hard disk
 - add vim-config directory to the linux-setup repository.
-- allow ssh from other computers.
-
 
 
 ## tmux
@@ -69,6 +67,17 @@ git clone git@github.com:mtromp/linux-setup.git
 ### copy the .gitconfig file into my home directory.
 ```
 
+## Allow ssh from other machines
+First I noticed that the `ifconfig` command was not available:
+```bash
+sudo apt install net-tools
+
+## then install ssh
+sudo apt install ssh
+service ssh status  ## verify that the service is up and listening to port 22
+```
+The installation will start up the ssh service and now I can ssh into the machine from
+my Mac Book Pro.
 ## Configuring/Mounting the Hard disk
 
 Don't know how to do this yet.
