@@ -63,5 +63,41 @@ in a row.
 The tmp/deploy/images/qemux86 files have time stamps of Jul 4, 2019 15:09. The
 rootfs.ext4 file has the time when I last booted/ran the qemu images 15:51 or so.
 
+## Beaglebone Black build
 
+Following the instructions on this site: https://jumpnowtek.com/beaglebone/BeagleBone-Systems-with-Yocto.html
+
+I am using a different window so that the oe-init-build-env from the previous
+build does not have a negative impact on the beaglebone build
+
+```bash
+sudo apt install libncurses5-dev ## the only one from the list that was available
+cd ~/workspace/yoctowork/poky
+git clone -b warrior git://git.openembedded.org/meta-openembedded
+git clone -b warrior https://github.com/meta-qt5/meta-qt5.git
+
+cd ..  ## back to the yoctowork directory
+mkdir bbb
+cd bbb
+git clone -b warrior git://github.com/jumpnow/meta-bbb
+mkdir -p ./build/conf
+source ../poky/oe-init-build-env ./build
+cp ../meta-bbb/conf/local.conf.sample ./conf/local.conf
+cp ../meta-bbb/conf/bblayers.conf.sample ./conf/bblayers.conf
+```
+
+I edited the files to use the correct path and to point to the tmp, downloads
+and sstate-cache directories in the yoctowork/poky/build directory. Entered
+hardcoded paths in both files (local.conf and bblayers.conf).
+
+Double checked that the qemu from the sato build still worked. It did.
+
+Realized that I had done the sourcing of the oe-init-build-env before changing
+the configuration files. Exit that window and create a new one.
+
+build the console-image `bitbake console-image` started at 19:49 finished 20:46
+
+build the `qt5-image` started at 20:48 finished at 21:05
+
+The build of installer-image took about a minute. qemux86 still comes up.
 

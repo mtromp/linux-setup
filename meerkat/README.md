@@ -37,6 +37,13 @@ set nocompatible
 ```
 That took care of that irritation.
 
+Remove vim-tiny and install vim with more features.
+
+```bash
+sudo apt remove --assume-yes vim-tiny
+sudo apt install --assume-yes vim
+```
+
 ## changes to .bashrc
 - increase HISTSIZE to 10000
 - increate HISTFILESIZE to 2000000
