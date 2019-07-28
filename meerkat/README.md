@@ -86,6 +86,45 @@ service ssh status  ## verify that the service is up and listening to port 22
 ```
 The installation will start up the ssh service and now I can ssh into the machine from
 my Mac Book Pro.
+
+## prevent sleep when remote connection
+According to the answer found here:
+https://askubuntu.com/questions/521620/prevent-machine-from-sleeping-when-ssh-connections-are-on
+
+I placed a file in `/etc/pm/sleep.d/` named `05_ssh_keepawake`. Its contents are:
+```bash
+#!/bin/sh
+if [ "$(who | grep -cv "(:")" -gt 0 ]; then
+    echo "SSH session(s) are on. Not suspending."
+    exit 1
+fi
+```
+I have **NOT** verified that this works.
+
+## Wake up meerkat on network request
+The next challenge is to wake up the meerkat when I want to ssh using my
+MacBook Pro.
+
+- I verified that the BIOS was setup to wake
+- Then I needed to configure the system within ubuntu
+  - I used `iw` commands to figure out the status and the configure for
+    magic-packets.
+
+```bash
+iw dev # shows the interface information phy#0
+iw phy0 wowlan show  # wakeup was disabled.
+sudo iw phy0 wowlan enable magic-packet disconnect
+```
+
+On my MacBook Pro I did the following:
+```
+brew install wakeonlan
+wakeonlan <MAC address of Meerkat network card>
+```
+Once I verified that worked, I placed a bash script in /usr/local/bin that
+did the correct wakeonlan command. I did not want to memorize the MAC address.
+I called the script wakeupMeerkat.
+
 ## Configuring/Mounting the Hard disk
 
 Don't know how to do this yet. POSTPONE UNTIL SPACE IS AN ISSUE
